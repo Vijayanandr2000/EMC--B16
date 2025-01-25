@@ -1,0 +1,17 @@
+1. git init --> Initiale
+2. git add . -> add all file
+2.1 git add <path></path> -> add particular file
+3. git commit -> give a cmt message
+4. git push -> push to the web site
+
+
+1. git branch -M <brnchname></brnchname>
+2. git add remote origin <url></url>
+3. git push
+
+
+1. git checkout -b <brnchname> -> create a new brnch and swutch
+2. git checkout <brnchname> -> just switch a existing
+3. git fetch -> get the updates alone
+4. git pull -> get the updates and get the modified code changes as well
+

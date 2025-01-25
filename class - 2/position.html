@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postion</title>
+
+    <style>
+        .item {
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        .static {
+            position: static;
+            /* top: 50px; */
+            z-index: 10;
+
+        }
+
+        .relative {
+            position: relative;
+            top: 10px;
+        }
+
+        .absolute {
+            position: absolute;
+            top: 10px;
+            background-color: red;
+            /* z-index: -1; */
+        }
+
+        .parent-abs {
+            position: relative;
+            background-color: aquamarine;
+            padding: 10px;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            background-color: blueviolet;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 50px;
+            background-color: yellow;
+        }
+
+        .scroll {
+            height: 2000px;
+            background-color: grey;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="item static">
+        Static
+    </div>
+
+    <hr>
+
+    <div class="item relative">
+        Relative
+    </div>
+
+    <hr>
+
+    <div class="parent-abs">
+        <div class="item absolute">absolute</div>
+    </div>
+
+    <hr>
+
+    <div class="item fixed">fixed</div>
+
+    <hr>
+
+    <div class="item sticky">sticky</div>
+
+    <hr>
+
+    <div class="scroll"></div>
+
+</body>
+
+</html>

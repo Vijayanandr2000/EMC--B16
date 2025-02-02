@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                "entrace parking parking"
+                "bed1 hall kitchen"
+                "bed1 bed2 staircase"
+            ;
+            gap: 10px;
+            grid-template-rows: repeat(3, minmax(150px, 1fr));
+        }
+
+        .entrace {
+            grid-area: entrace;
+        }
+
+        .parking {
+            grid-area: parking;
+        }
+
+        .bed1 {
+            grid-area: bed1;
+        }
+
+        .hall {
+            grid-area: hall;
+        }
+
+        .kitchen {
+            grid-area: kitchen;
+        }
+
+        .bed2 {
+            grid-area: bed2;
+        }
+
+        .staircase {
+            grid-area: staircase;
+        }
+
+        .bg--lightcoral {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="bg--lightcoral entrace">Entrance</div>
+        <div class="bg--lightcoral parking">Parking</div>
+        <div class="bg--lightcoral bed1">Bed Room 1</div>
+        <div class="bg--lightcoral hall">Hall</div>
+        <div class="bg--lightcoral kitchen">Kitchen</div>
+        <div class="bg--lightcoral bed2">Bed Room 2</div>
+        <div class="bg--lightcoral staircase">Staircase</div>
+    </div>
+</body>
+
+</html>

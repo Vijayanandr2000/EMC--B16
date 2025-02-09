@@ -1,0 +1,9 @@
+1. Global Selector -> globally affect
+2. Types of Selector -> tagname, class name, id, tag[attribute](input[name="vijay"])
+3. way of writing css -> inline, internal, extral
+4. css position -> static, relative, absolute, fixed, sticky
+5. zindex -> accessing the zindex means layer
+6. media query -> to make the website responisve depandes screen size like mbl tab laptop
+    screen
+    potrait or landscape
+    print

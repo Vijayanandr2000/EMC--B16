@@ -1,0 +1,30 @@
+1. let, var, const -> 
+    var perform hoisting means brint the var to the top of the block by assigning undefined
+    
+    let and const block scope, es6 feat, using let we can reassign the values using const we cant reassign
+
+2. data type in js
+    primitive
+        number
+        strng
+        boolean
+        symbol
+        null
+        undefined
+    Non primitive
+        array 
+        object
+        undefined
+
+3. pass by value and pass by ref diff?
+    Primitive -> pass by value => ref to the block values
+    Non primitive -> pass by ref => ref to the global address
+
+4. How to interact with dom
+    Through document
+        and attach the selectors -> getElementBY(tagname, id, classname, name)
+
+5. diff btw queryselector and query selector all?
+    queryselector find the first one alone -> we need to mention identifier
+    all will select all in array format
+

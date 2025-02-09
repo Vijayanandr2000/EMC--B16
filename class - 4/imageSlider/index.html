@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        .slider {
+            width: 200px;
+            border: 3px solid grey;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            width: 600px;
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            width: 200px;
+
+            padding: 50px auto;
+            text-align: center;
+            font-size: 24px;
+            background-color: aqua;
+        }
+
+        .buttons {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slider">
+        <div class="slider-container">
+            <div class="slide">1</div>
+            <div class="slide">2</div>
+            <div class="slide">3</div>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button onclick="previousSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <script>
+        let currIdx = 0
+
+        function updateSlide() {
+            console.log(- currIdx * 200);
+
+            document.querySelector(".slider-container").style.transform = `translateX(${-currIdx * 200}px)`
+        }
+
+        function previousSlide() {
+            if (currIdx > 0) {
+                currIdx--;
+                updateSlide();
+            }
+        }
+
+        function nextSlide() {
+            if (currIdx < 2) {
+                currIdx++;
+                updateSlide();
+            }
+        }
+    </script>
+
+</body>
+
+</html>

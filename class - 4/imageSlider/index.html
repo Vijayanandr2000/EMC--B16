@@ -7,19 +7,19 @@
     <title>Image Slider</title>
     <style>
         .slider {
-            width: 200px;
+            width: 100%;
             border: 3px solid grey;
             overflow: hidden;
         }
 
         .slider-container {
-            width: 600px;
+            width: 300%;
             display: flex;
             transition: transform 0.5s ease-in-out;
         }
 
         .slide {
-            width: 200px;
+            width: 100%;
 
             padding: 50px auto;
             text-align: center;
@@ -54,7 +54,7 @@
         function updateSlide() {
             console.log(- currIdx * 200);
 
-            document.querySelector(".slider-container").style.transform = `translateX(${-currIdx * 200}px)`
+            document.querySelector(".slider-container").style.transform = `translateX(${-currIdx * 27}%)`
         }
 
         function previousSlide() {

@@ -1,0 +1,12 @@
+1. Regex
+2. Image slider
+3. ES6
+    - let,const and var
+    - Template Literals
+    - functions
+    - Default Parameter
+    - Destructing
+    - Spread and rest operator
+    - async & await
+4. Array Methods
+5. Form Recap with New Implementation

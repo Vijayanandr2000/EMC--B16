@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="parent">
+        <li>vijay</li>
+        <li>anand</li>
+        <li>kishore</li>
+    </ul>
+    <h1 id="h1"></h1>
+    <h1 id="h2"></h1>
+    <h1 id="h3"></h1>
+
+    <script>
+        // const listItems = document.querySelectorAll('li');
+
+        // listItems.forEach(item => {
+        //     item.addEventListener('click', () => {
+        //         console.log(item.innerHTML)
+        //     });
+        // });
+        const parent = document.getElementById('parent');
+        parent.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LI') {
+                console.log(event.target.innerHTML)
+            }
+        });
+
+        const h = document.getElementById('h1')
+        const h2 = document.getElementById('h2')
+        const h3 = document.getElementById('h3')
+
+        console.log(h)
+
+        h.textContent = `<b>vijay</b>`
+        h2.innerText = `<b>vijay</b>`
+        h3.innerHTML = `<b>vijay</b>`
+    </script>
+
+</body>
+
+</html>

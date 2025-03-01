@@ -1,0 +1,32 @@
+body {
+  padding: 20px;
+}
+
+.idCard {
+  /* border: 1px solid black; */
+  width: 300px;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  margin: 30px auto;
+}
+
+.idCard-header {
+  background-color: #4caf50;
+  padding: 10px;
+  border-radius: 8px 8px 0 0;
+  color: white;
+}
+
+.idCard-body {
+  padding: 10px;
+}
+
+.idCard-body img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}

@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Welcome to Quiz APP..!</h1>
+      <h1 className="card-title">Welcome to Quiz APP..!</h1>
 
       <br />
 

@@ -4,7 +4,7 @@ import { formatCountryDataDTO } from "./dto/CountryDataDTO";
 import CountryCard from "./components/CountryCard";
 
 function App() {
-  const [countryDatas, setCountryDatas] = useState([]);
+  const [countryDatas, setCountryDatas] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function App() {
 
     (async () => {
       try {
-        let response = await fetch("https://restcountries.com/v3.1/all");
+        let response = await fetch("htts://restcountries.com/v3.1/all");
         let datas = await response.json();
 
         const properCountrydatas = formatCountryDataDTO(datas).sort((a, b) =>
@@ -33,6 +33,7 @@ function App() {
         setCountryDatas(properCountrydatas);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setCountryDatas([]);
       } finally {
         setLoading(false);
       }
@@ -49,7 +50,7 @@ function App() {
         <h1>Loading...</h1>
       ) : (
         <>
-          <h1>Country's Data</h1>
+          <h1>Country's Data12</h1>
           <div className="country-grid">
             {countryDatas.map((country) => {
               return <CountryCard name={country.name} flag={country.flag} />;

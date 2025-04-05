@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "dev:db": "nodemon index.db.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vijayanandr2000",
@@ -13,6 +14,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.2",
+    "mongodb": "^6.15.0",
     "nodemon": "^3.1.9"
   }
 }

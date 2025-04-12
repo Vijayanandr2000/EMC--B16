@@ -11,7 +11,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form submitted", user);
-    const resp = await axios.post("http://localhost:8080/user", user);
+    const resp = await axios.post("https://emc-b16.onrender.com/user", user);
 
     console.log(resp.status);
     if (resp.status === 201) {

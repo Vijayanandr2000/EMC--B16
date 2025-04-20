@@ -1,63 +1,75 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect, Suspense } from "react";
+
 import "./App.css";
-import { formatCountryDataDTO } from "./dto/CountryDataDTO";
-import CountryCard from "./components/CountryCard";
+
+// Lazy load the CountryCard component
+const CountryCard = React.lazy(() => import("./components/CountryCard"));
+
+// Functional Error Boundary Hook
+function useErrorBoundary() {
+  const [error, setError] = useState(null);
+
+  const resetError = () => setError(null);
+
+  const ErrorBoundary = ({ children }) => {
+    if (error) {
+      return (
+        <div>
+          <h1>Error: {error}</h1>
+          <button onClick={resetError}>Retry</button>
+        </div>
+      );
+    }
+    return children;
+  };
+
+  const handleError = (errorMessage) => setError(errorMessage);
+
+  return { ErrorBoundary, handleError };
+}
 
 function App() {
-  const [countryDatas, setCountryDatas] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [countryDatas, setCountryDatas] = useState([]);
+  const { ErrorBoundary, handleError } = useErrorBoundary();
 
   useEffect(() => {
-    setLoading(true);
-    //callback hell
-    // fetch("https://restcountries.com/v3.1/all")
-    //   .then((vijay) => vijay.json())
-    //   .then((data) => {
-    //     setCountryDatas(data);
-    //   })
-    //   .finally(() => {
-    //     setLoading(false);
-    //   });
-
-    //es-6 async/await
-    //IIFE
-
     (async () => {
       try {
-        let response = await fetch("htts://restcountries.com/v3.1/all");
-        let datas = await response.json();
-
-        const properCountrydatas = formatCountryDataDTO(datas).sort((a, b) =>
-          a.name.localeCompare(b.name)
-        );
-        setCountryDatas(properCountrydatas);
+        const response = await fetch("https://restcountries.com/v2/all");
+        const datas = await response.json();
+        setCountryDatas(datas);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setCountryDatas([]);
+        handleError(error.message); // Pass specific error message
       } finally {
         setLoading(false);
       }
     })();
   }, []);
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-
   return (
     <div className="App">
-      {loading ? (
-        <h1>Loading...</h1>
-      ) : (
-        <>
-          <h1>Country's Data12</h1>
-          <div className="country-grid">
-            {countryDatas.map((country) => {
-              return <CountryCard name={country.name} flag={country.flag} />;
-            })}
-          </div>
-        </>
-      )}
+      <ErrorBoundary>
+        {loading ? (
+          <h1>Loading...</h1>
+        ) : (
+          <>
+            <h1>Country's Data</h1>
+            <div className="country-grid">
+              <Suspense fallback={<div>Loading country cards...</div>}>
+                {countryDatas.map((country) => (
+                  <CountryCard
+                    key={country.name}
+                    name={country.name}
+                    flag={country.flag}
+                  />
+                ))}
+              </Suspense>
+            </div>
+          </>
+        )}
+      </ErrorBoundary>
     </div>
   );
 }
